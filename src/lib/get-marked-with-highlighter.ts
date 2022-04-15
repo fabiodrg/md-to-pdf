@@ -12,5 +12,18 @@ export const getMarked = (options: marked.MarkedOptions) => {
 		...options,
 	});
 
+	// add support for mermaid diagrams
+	marked.use({
+		renderer: {
+			code(code, infostring) {
+			  if (infostring === 'mermaid') {
+				return '<div class="mermaid">\n' + code + '\n</div>\n';
+			  } else {
+				return false;
+			  }
+			}
+		}
+	});
+
 	return marked;
 };

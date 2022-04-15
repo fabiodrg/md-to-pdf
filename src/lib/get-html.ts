@@ -10,5 +10,7 @@ export const getHtml = (md: string, config: Config) => `<!DOCTYPE html>
 	<body class="${config.body_class.join(' ')}">
 		${getMarked(config.marked_options)(md)}
 	</body>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/mermaid/9.0.0/mermaid.min.js"></script>
+	<script>mermaid.init();</script>
 </html>
 `;
